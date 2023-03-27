@@ -1,0 +1,92 @@
+<%- include('../partials/admin-header') %> 
+
+<section class="content-main">
+    <div class="content-header">
+        <div>
+            <h2 class="content-title card-title">All Users</h2>
+          
+        </div>
+        <!-- <div>
+            <input type="text" placeholder="Search order ID" class="form-control bg-white">
+        </div> -->
+    </div>
+    <div class="card mb-4">
+        <header class="card-header">
+            <div class="row gx-3">
+                <div class="col-lg-4 col-md-6 me-auto">
+                    <input type="text" placeholder="Search..." class="form-control">
+                </div>
+                <!-- <div class="col-lg-2 col-6 col-md-3">
+                    <select class="form-select">
+                        <option>Status</option>
+                        <option>Active</option>
+                        <option>Disabled</option>
+                        <option>Show all</option>
+                    </select>
+                </div>
+                <div class="col-lg-2 col-6 col-md-3">
+                    <select class="form-select">
+                        <option>Show 20</option>
+                        <option>Show 30</option>
+                        <option>Show 40</option>
+                    </select>
+                </div> -->
+            </div>
+        </header> <!-- card-header end// -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Status</th>
+                       
+                            <th scope="col" class="text-end"> Actions </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+ 
+<% response.forEach(element => { %>
+ 
+
+ 
+
+                        <tr>
+                            <td>## </td>
+                            <td> <%=element.username%> </b></td>
+                            <td><%=element.email%> </td>
+                            <td>##</td>
+                            <% if (element.blocked) { %>
+                                <td>user blocked</td>
+                            
+                            <% } else { %>
+                                <td>user active</td>
+                            <% } %>
+                             
+                            
+                            <td>
+                                <% if (element.blocked) { %>
+                                    <a href="/admin/unblockUser/<%=element._id%>" class="btn btn-success">unblock</a>
+                                <% } else { %>
+                                 <a href="/admin/blockUser/<%=element._id%>" class="btn btn-danger">block</a>
+                                 <% } %>
+                                
+                            </td>
+
+<% }) %>
+                            
+                            
+                    </tbody>
+                </table>
+            </div> <!-- table-responsive //end -->
+        </div> <!-- card-body end// -->
+    </div> <!-- card end// -->
+   
+</section>
+
+
+
+<%- include('../partials/admin-footer') %> 

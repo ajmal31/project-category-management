@@ -1,0 +1,140 @@
+<%- include('../partials/admin-header') %>
+
+<section class="content-main">
+    <form action="/admin/updateProducts/<%=response._id%> " method="post" enctype="multipart/form-data">
+        <!-- enctype="multipart/form-data" -->
+            <div class="row">
+                 
+                <div class="col-9">
+                    <div class="content-header">
+                        <h2 class="content-title">Add New Product</h2>
+
+                       
+                        <div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>edit product <%=response._title%> </h4>
+                        </div>
+                        <div class="card-body">
+                           
+                                <div class="mb-4">
+                                    <label for="product_name" class="form-label">Product title</label>
+                                    <label for="product_name" class="form-label">Product title</label>
+                                    <input type="text" value="<%=response.title%> " placeholder="Title" class="form-control" name="title">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Full description</label>
+                                    <input type="text"  name="description" placeholder="Description" value="<%=response.description %> " class="form-control" rows="4">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="mb-4">
+                                            <label class="form-label">Price</label>
+                                            <div class="row gx-2">
+                                                <input placeholder="₹" type="text" value="<%=response.price%> " name="price" class="form-control">
+                                            </div>
+<br>
+                                            <label class="form-label">Quantity</label>
+                                            <div class="row gx-2">
+                                                <input placeholder="" type="number" value="<%=response.quantity%> " name="quantity" class="form-control">
+                                            </div>
+<br>
+<select class="form-select" name="category" >
+    <% cat.forEach(element => { %>
+    <option value="<%=element.name%>"><%=element.name%></option>
+    <% }) %>
+  
+</select>
+ 
+                                             
+  
+</select>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        
+                                      
+                                    </div>
+                                 
+                                </div>
+                                
+                              
+                                <button type="submit" class="btn btn-md rounded font-sm hover-up">Add</button>
+                            
+                        </div>
+                    </div> <!-- card end// -->
+                   
+                </div>
+                <div class="col-lg-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Media</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-upload">
+                                <img src="/admin-assets/imgs/theme/upload.svg" alt="img">
+                                <!-- <input class="form-control" name="image1" type="file" multiple> -->
+                            </div>
+                        </div>
+                    </div> <!-- card end// -->
+                   
+                    <!-- card end// -->
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Media</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-upload">
+                                <img src="/admin-assets/imgs/theme/upload.svg" alt="img">
+                                <input class="form-control" value="<%=response.filename[0]%> " name="images" type="file" multiple >
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="col-lg-3">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Media</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-upload">
+                                <img src="/admin-assets/imgs/theme/upload.svg" alt="img">
+                                <!-- <input class="form-control" name="image3" type="file" multiple> -->
+                            </div>
+                        </div>
+                    </div> <!-- card end// -->
+                   
+                    <!-- card end// -->
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h4>Media</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-upload">
+                                <img src="/admin-assets/imgs/theme/upload.svg" alt="img">
+                                <!-- <input class="form-control" name="image4" type="file" multiple> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+          
+
+                
+            </div>
+            </form>
+            
+        </section>
+    <%- include('../partials/admin-footer') %>
